@@ -1,0 +1,23 @@
+''' oskuddar - Numphy Usage Example '''
+
+import numpy as np
+seed = 49
+
+# usage: rng.random(size=(h,w)) 
+rng = np.random.default_rng(seed=seed)
+
+# tanh = take all real numbers (-∞, ∞) and squish them into the range (-1, 1)
+# tanh passes through the origin (0, 0) and is symmetric around it.
+# tanh formula is sinh(x) / cosh(x) = (e^x - e^-x) / (e^x + e^-x)
+# tanh (-x) = -tanh(x) (odd function)
+# derivative of tanh is 1 - tanh^2(x)
+# np.matmul() vs np.dot():- np.matmul() is a more general function that can handle higher-dimensional arrays and performs matrix multiplication according to the rules of linear algebra, while np.dot() is a more specific function that can perform both matrix multiplication and dot product depending on the input shapes. In practice, for 2D arrays, np.dot() and np.matmul() will yield the same result, but np.matmul() is recommended for clarity when performing matrix multiplication.
+
+def neural_network(inputs, weights):
+    return np.tanh(np.matmul(weights.transpose(), inputs)) 
+    # return np.tanh(weights.transpose() @ inputs) # alternative using the @ operator for matrix multiplication
+
+inputs = rng.random(size=(2,1))
+weights = rng.random(size=(2,1))
+
+neural_network(inputs, weights)
