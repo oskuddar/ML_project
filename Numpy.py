@@ -1,5 +1,4 @@
 ''' oskuddar - Numphy Usage Example '''
-''' Reminder: git push -u origin main '''
 
 import numpy as np
 seed = 49
