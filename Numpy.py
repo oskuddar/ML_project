@@ -1,4 +1,5 @@
 ''' oskuddar - Numphy Usage Example '''
+''' Reminder: git push -u origin main '''
 
 import numpy as np
 seed = 49
@@ -12,6 +13,8 @@ rng = np.random.default_rng(seed=seed)
 # tanh (-x) = -tanh(x) (odd function)
 # derivative of tanh is 1 - tanh^2(x)
 # np.matmul() vs np.dot():- np.matmul() is a more general function that can handle higher-dimensional arrays and performs matrix multiplication according to the rules of linear algebra, while np.dot() is a more specific function that can perform both matrix multiplication and dot product depending on the input shapes. In practice, for 2D arrays, np.dot() and np.matmul() will yield the same result, but np.matmul() is recommended for clarity when performing matrix multiplication.
+
+# Description of neural_network function: It takes two arguments, inputs and weights, which are expected to be 2D arrays (matrices). The function performs a matrix multiplication of the transposed weights with the inputs using np.matmul(), and then applies the hyperbolic tangent (tanh) activation function to the result. The output is a transformed version of the input data, where the values are squished into the range (-1, 1) due to the tanh function. This is a common operation in neural networks to introduce non-linearity into the model.  
 
 def neural_network(inputs, weights):
     return np.tanh(np.matmul(weights.transpose(), inputs)) 
