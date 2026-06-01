@@ -12,19 +12,15 @@ def perceptron (n_iter, x=None, y=None):
         for j in range(len(x)):
             if (y[j] * (theta @ x[j].T)) <= 0:
                 theta += np.dot (y[j], x[j])
-            else:
-                continue
-            j += 1
-            print(theta)
-        i += 1
-        print(theta)
+            print("j= ", j, " ", theta)
 
 
 
 x = np.array([[-1, -1], [1, 0], [-1, 1.5]])
 y = np.array([1, -1, 1])
+
 # Change Order
 # x = np.array([[1, 0], [-1, 1.5], [-1, -1]])
 # y = np.array([-1, 1, 1])
-n_iter = 10
+n_iter = 5
 perceptron (n_iter, x, y)
