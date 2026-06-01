@@ -1,11 +1,14 @@
 ''' oskuddar - Numphy Usage Example '''
 
+import code
+
 import numpy as np
 seed = 49
 
 # usage: rng.random(size=(h,w)) 
 rng = np.random.default_rng(seed=seed)
 
+'''Exercise 1:'''
 # tanh = take all real numbers (-∞, ∞) and squish them into the range (-1, 1)
 # tanh passes through the origin (0, 0) and is symmetric around it.
 # tanh formula is sinh(x) / cosh(x) = (e^x - e^-x) / (e^x + e^-x)
@@ -23,3 +26,24 @@ inputs = rng.random(size=(2,1))
 weights = rng.random(size=(2,1))
 
 neural_network(inputs, weights)
+
+'''Exercise 2:'''
+
+# Scalar function
+
+def scalar_function(x,y):
+    if x <= y:
+        return x * y
+    else:
+        return x / y
+    
+# Vectorized solution using np.where
+
+def scalar_function (x,y):
+    return np.where(x<=y, x*y, x/y) # if x <= y, return x*y, else return x/y
+
+# Vector function that uses scalar_function 
+
+def vector_function(x,y):
+    return np.vectorize(scalar_function)(x,y)
+
