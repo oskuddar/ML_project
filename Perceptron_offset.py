@@ -23,5 +23,5 @@ def perceptron (n_iter, x=None, y=None):
 x = np.array([[-4, 2], [-2, 1], [-1, -1], [2, 2], [1, -2]])
 y = np.array([1, 1, -1, -1, -1])
 
-n_iter = 4
+n_iter = 10
 perceptron (n_iter, x, y)
