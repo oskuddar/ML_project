@@ -5,12 +5,24 @@
 import numpy as np
 import pandas as pd
 
-review_train = pd.read_csv("./Project1/sentiment_analysis/reviews_train.tsv", sep='\t', encoding="latin-1")
+toy_data = pd.read_csv("./Project1/sentiment_analysis/toy_data.tsv", sep='\t', encoding="latin-1")
 
-review_train.head()
-review_train.columns.tolist()
-feature_vector = np.asarray(review_train['sentiment'])
-np.shape(feature_vector)
+# toy_data.head()
+# toy_data.columns.tolist()
+feature_vector = np.asarray(toy_data.iloc[:,1:3], dtype=float)
+label = np.asarray(toy_data.iloc[:,0], dtype=float)
+theta =np.asarray([0,0], dtype=float)
+theta_0 = 0.0
 
 def hinge_loss_single(feature_vector, label, theta, theta_0):
-    
+    for i in range(len(feature_vector)):
+        db = label[i] * ((theta @ feature_vector[i]) + theta_0)
+        print(db)
+        h_loss = max (0.0, 1.0 - db)
+        print(h_loss)
+        if h_loss > 0.0:
+            theta += np.dot(label[i],feature_vector[i])
+            theta_0 += feature_vector[i]
+            print(theta, theta_0)        
+        
+hinge_loss_single(feature_vector, label, theta, theta_0)
