@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-toy_data = pd.read_csv("./Project1/sentiment_analysis/toy_data.tsv", sep='\t', encoding="latin-1")
+toy_data = pd.read_csv("/Users/shera/VSCode/ML_project/Project1/sentiment_analysis/toy_data.tsv", sep='\t', encoding="latin-1")
 
 # toy_data.head()
 # toy_data.columns.tolist()
@@ -44,6 +44,4 @@ perceptron (feature_matrix, label, T)
 #             theta, theta_0 = perceptron_single_step_update(
 #                 feature_matrix[i], labels[i], theta, theta_0)
 #     return (theta, theta_0)
-
-
 
